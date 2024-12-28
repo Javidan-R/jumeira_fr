@@ -11,5 +11,5 @@ export { Contact } from "./Contact";
 export { Floor } from "./Floor";
 export { Document } from "./Document";
 export { Whatsapp } from "./Whatsapp";
-// export {Telegram}   from './Telegram
+export { Telegram } from "./Telegram";
 // export {VectorArchLine} from './VectorArchLine';

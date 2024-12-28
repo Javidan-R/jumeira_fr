@@ -16,7 +16,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gray-50">
         {/* Common Navbar */}
-        <Navbar />
         <main>{children}</main>
         {/* Common Footer */}
         <Footer />

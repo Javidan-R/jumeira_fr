@@ -23,7 +23,7 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = ({ href, icon, isActive }) => (
   <Link href={href}>
     <div
-      className={`flex items-center p-4 cursor-pointer ${
+      className={`flex items-center py-4 px-8 cursor-pointer ${
         isActive
           ? "text-[#BC9861] border-r-4 border-[#BC9861]"
           : "text-[#C0C0C0]"
@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
   const inactiveColor = "#C0C0C0";
 
   return (
-    <div className="flex flex-col w-24 h-screen">
-      <nav className="flex flex-col flex-grow">
+    <div className="w-24 bg-white shadow-lg">
+      <nav className="flex flex-col items-center justify-center flex-grow gap-4">
         <NavItem
           href="/"
           icon={
@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
           }
           isActive={pathname === "/phone"}
         />
-        <div className="flex items-center p-4 mt-44">
+        <div className="flex flex-col items-center justify-center flex-grow p-4 mt-20">
           <div className="w-8 h-8">
             <Phone />
           </div>
