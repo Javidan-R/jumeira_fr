@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import ParallaxImage from "@/app/utils/ParallaxImage"; // Make sure this path is correct
 import parkingImage from "../../../../public/images/Parking.png";

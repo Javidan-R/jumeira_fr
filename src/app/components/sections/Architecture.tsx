@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import arch from "../../../../public/images/arch.png";
 import arch2 from "../../../../public/images/arch2.png";

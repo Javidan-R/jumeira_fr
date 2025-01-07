@@ -34,13 +34,14 @@ const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
   useEffect(() => {
     let ticking = false;
+    let currentElement: HTMLDivElement | null = null;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          if (containerRef.current) {
+          if (currentElement) {
             const { top, bottom, height } =
-              containerRef.current.getBoundingClientRect();
+              currentElement.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
             // Dynamic speed based on visibility
@@ -52,7 +53,7 @@ const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
             if (top < windowHeight && bottom > 0) {
               const offset = (top - windowHeight) * dynamicSpeed;
-              containerRef.current.style.transform = `translateY(${offset}px)`;
+              currentElement.style.transform = `translateY(${offset}px)`;
 
               // Dynamic zoom effect based on scroll position
               const zoomFactor = 1 + visiblePercentage * 0.05; // Adjust for zoom intensity
@@ -82,11 +83,12 @@ const ParallaxImage: React.FC<ParallaxImageProps> = ({
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
+      currentElement = containerRef.current; // Capture current ref value
     }
 
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
       window.removeEventListener("scroll", handleScroll);
     };

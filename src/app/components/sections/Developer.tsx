@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import devimg from "../../../../public/images/devimg.png";
 import ParallaxImage from "@/app/utils/ParallaxImage";
