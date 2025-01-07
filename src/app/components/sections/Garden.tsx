@@ -3,9 +3,7 @@ import React from "react";
 import gardenImage from "../../../../public/images/garden.png";
 import Image from "next/image";
 
-type Props = {};
-
-const Garden: React.FC<Props> = () => {
+const Garden = () => {
   // const [scrollY, setScrollY] = useState(0);
 
   // // Scroll handle function optimized with useCallback and throttling

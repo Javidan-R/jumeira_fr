@@ -1,6 +1,5 @@
 "use client";
 import "./globals.css"; // Global styles
-import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";

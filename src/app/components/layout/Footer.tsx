@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Telegram, Whatsapp } from "@public/icons";
 
 // Define a type for the props to enhance type safety
 interface FooterProps {
-  logo: any;
+  logo: StaticImageData;
   links: { href: string; label: string }[];
   address: string;
   phoneNumber: string;

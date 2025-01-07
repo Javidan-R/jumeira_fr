@@ -28,7 +28,7 @@ const Form = () => {
 
   // Validation function
   const validate = (data: FormData): FormErrors => {
-    let err: FormErrors = {};
+    const err: FormErrors = {};
     if (!data.name.trim()) err.name = "Имя не может быть пустым";
     if (!data.email) err.email = "Email обязателен";
     else if (!/\S+@\S+\.\S+/.test(data.email))
