@@ -17,7 +17,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="p-10">
+    <section className="p-10" id="about">
       <div className="flex flex-col items-center w-[636px] h-[514px] relative  left-[45%]">
         <div className="flex flex-row items-center">
           <div className="flex flex-col justify-between w-[238px] h-[96px] p-6  space-y-3">
@@ -67,7 +67,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

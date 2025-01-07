@@ -1,11 +1,11 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import projectimage from "../../../../public/images/projectimage.png";
+import gardenImage from "../../../../public/images/garden.png";
 import Image from "next/image";
 
 type Props = {};
 
-const Projects: React.FC<Props> = () => {
+const Garden: React.FC<Props> = () => {
   const [scrollY, setScrollY] = useState(0);
 
   // Scroll handle function optimized with useCallback and throttling
@@ -23,16 +23,16 @@ const Projects: React.FC<Props> = () => {
   }, [handleScroll]);
   return (
     <section
-      id="projects"
-      className="flex flex-col justify-between py-12 text-[#474747] sm:flex-row"
+      id="garden"
+      className="flex flex-col justify-between py-32 text-gray-800 sm:flex-row"
     >
       {/* Text Section */}
       <div className="flex-1 max-w-[600px] sm:max-w-[55%]">
         {/* Header */}
         <div className="relative ">
           <h2 className="text-2xl font-light text-[#C0A06C] md:text-3xl lg:text-4xl max-w-[900px] h-[80px] absolute left-[10%] top-10">
-            роскошный жилой комплекс в одной из самых востребованных локаций с
-            видом на море
+            ИДЕАЛЬНОЕ СОЧЕТАНИЕ ПРИРОДЫ, КОМФОРТА И ФУНКЦИОНАЛЬНОГО
+            БЛАГОУСТРОЙСТВА
           </h2>
         </div>
 
@@ -41,20 +41,21 @@ const Projects: React.FC<Props> = () => {
           <div className="w-[500px] h-1 bg-[#D1D1D1] rounded-tr-lg rounded-br-lg opacity-90"></div>
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-widest text-[#DAD5D6] w-[400px]">
-              О проекте
+              обустройство
             </h1>
             <div className="mt-10 text-[16px] leading-relaxed text-[#474747] md:text-lg lg:text-xl w-[400px] h-[504px]">
               <p>
+                Гордость{" "}
                 <span className="font-medium text-gray-900">Jumeira House</span>{" "}
-                представляет собой уникальный проект для ценителей утонченной
-                архитектуры и гармоничного пространства для жизни. Комплекс
-                сочетает в себе благородство облика, внимание к деталям и
-                высокий уровень комфорта. Следуя современным архитектурным
-                тенденциям, Jumeira House воплощает идею пространства мечты, где
-                каждая деталь продумана для вашего удобства. Внутри закрытой
-                территории создается приватная атмосфера, где тишина и уединение
-                встречаются с комфортом и элегантностью. Здесь каждый день
-                наполнен комфортом, стилем и гармонией.
+                — собственный двор-сад, созданный профессиональными ландшафтными
+                дизайнерами. Пространство сочетает в себе  мощеные дорожки,
+                гравийные тропы и зеленые газоны, где пирамидальные туи и
+                ярусное озеленение формируют гармоничный ландшафт. Лиственные
+                деревья плавно переходят в низкорослые сосны и аккуратно
+                стриженные кустарники, создавая ощущение уюта и порядка. Живая
+                изгородь обеспечивает приватность зон отдыха, а продуманная
+                планировка двора делает его идеальным местом для прогулок,
+                спокойного отдыха с семьей и встреч с близкими.
               </p>
             </div>
           </div>
@@ -66,7 +67,7 @@ const Projects: React.FC<Props> = () => {
       {/* Image Section */}
       <div className="flex-1 max-w-[42.5%] mt-8 sm:mt-10 ">
         <Image
-          src={projectimage}
+          src={gardenImage}
           alt="Jumeira project Image"
           width={816}
           height={900}
@@ -81,4 +82,4 @@ const Projects: React.FC<Props> = () => {
   );
 };
 
-export default Projects;
+export default Garden;

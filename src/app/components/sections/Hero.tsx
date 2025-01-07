@@ -4,7 +4,7 @@ import Jumeiralogo from "../../../../public/images/JumeiraLogo.svg";
 import Link from "next/link";
 const Hero = () => {
   return (
-    <div className="relative w-full">
+    <section className="relative w-full" id="hero">
       <Image
         src={background}
         alt="Jumeira House"
@@ -41,7 +41,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

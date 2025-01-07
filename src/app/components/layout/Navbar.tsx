@@ -23,13 +23,13 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = ({ href, icon, isActive }) => (
   <Link href={href}>
     <div
-      className={`flex items-center py-4 px-8 cursor-pointer ${
+      className={`flex items-center py-4  mx-auto pl-8 w-[100px] cursor-pointer ${
         isActive
-          ? "text-[#BC9861] border-r-4 border-[#BC9861]"
+          ? "text-[#BC9861] border-r-8 border-[#BC9861]"
           : "text-[#C0C0C0]"
       }`}
     >
-      <div className="w-8 h-8">{icon}</div>
+      <div className="w-[52px] h-[52px]">{icon}</div>
     </div>
   </Link>
 );
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="w-24 bg-white shadow-lg">
-      <nav className="flex flex-col items-center justify-center flex-grow gap-4">
+      <nav className="flex flex-col items-center justify-center flex-grow gap-4 space-y-10">
         <NavItem
           href="/"
           icon={
@@ -100,8 +100,8 @@ const Navbar: React.FC = () => {
           }
           isActive={pathname === "/phone"}
         />
-        <div className="flex flex-col items-center justify-center flex-grow p-4 mt-20">
-          <div className="w-8 h-8">
+        <div className="flex flex-col items-center justify-center flex-grow mt-32">
+          <div className="w-[52px] h-[52px]">
             <Phone />
           </div>
         </div>

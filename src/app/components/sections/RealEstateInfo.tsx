@@ -19,7 +19,7 @@ const RealEstateInfo: React.FC<RealEstateInfoProps> = ({
   imagePosition,
 }) => {
   return (
-    <div className="p-6 bg-white rounded shadow-md flex flex-col md:flex-row">
+    <section className="p-6 bg-white rounded shadow-md flex flex-col md:flex-row">
       {imagePosition === "left" && (
         <div className="md:w-1/2 md:mr-4 mb-4 md:mb-0">
           <Image
@@ -53,7 +53,7 @@ const RealEstateInfo: React.FC<RealEstateInfoProps> = ({
           />
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

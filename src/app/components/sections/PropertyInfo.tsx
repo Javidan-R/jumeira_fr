@@ -16,7 +16,7 @@ const PropertyInfo: React.FC<PropertyInfoProps> = ({
   floorPlansLink,
 }) => {
   return (
-    <div className="p-4 bg-gray-100 rounded">
+    <section id="propery_info" className="p-4  rounded">
       <h2 className="mb-4 text-xl font-bold">Адрес</h2>
       <p className="mb-4">{address}</p>
 
@@ -38,7 +38,7 @@ const PropertyInfo: React.FC<PropertyInfoProps> = ({
           </span>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Location = () => {
   return (
-    <div className="">
+    <section id="location" className="py-32">
       {/* Title Section */}
       <div className="flex items-center justify-between w-full gap-10">
         <div className="w-[514px] h-[2px] bg-[#D1D1D1] rounded-b-md "></div>
@@ -35,7 +35,7 @@ const Location = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
