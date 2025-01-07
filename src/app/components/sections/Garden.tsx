@@ -1,26 +1,26 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import gardenImage from "../../../../public/images/garden.png";
 import Image from "next/image";
 
 type Props = {};
 
 const Garden: React.FC<Props> = () => {
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
 
-  // Scroll handle function optimized with useCallback and throttling
-  const handleScroll = useCallback(() => {
-    requestAnimationFrame(() => {
-      setScrollY(window.scrollY);
-    });
-  }, []);
+  // // Scroll handle function optimized with useCallback and throttling
+  // const handleScroll = useCallback(() => {
+  //   requestAnimationFrame(() => {
+  //     setScrollY(window.scrollY);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [handleScroll]);
   return (
     <section
       id="garden"

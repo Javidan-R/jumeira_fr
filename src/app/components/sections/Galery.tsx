@@ -13,17 +13,17 @@ import galery2 from "../../../../public/images/gallery.png";
 import galery3 from "../../../../public/images/gallery.png";
 
 // Custom Arrow Components
-const CustomPrevArrow = () => (
-  <button className="swiper-button-prev bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute left-0 top-[50%] transform -translate-y-[50%] z-10">
-    &#8592;
-  </button>
-);
+// const CustomPrevArrow = () => (
+//   <button className="swiper-button-prev bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute left-0 top-[50%] transform -translate-y-[50%] z-10">
+//     &#8592;
+//   </button>
+// );
 
-const CustomNextArrow = () => (
-  <button className="swiper-button-next bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute right-0 top-[50%] transform -translate-y-[50%] z-10">
-    &#8594;
-  </button>
-);
+// const CustomNextArrow = () => (
+//   <button className="swiper-button-next bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute right-0 top-[50%] transform -translate-y-[50%] z-10">
+//     &#8594;
+//   </button>
+// );
 
 const Gallery = () => {
   return (
