@@ -25,6 +25,20 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+button {
   text-transform: uppercase;
+}
+@keyframes trollTremble {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.troll-animation {
+  animation: trollTremble 1s ease-in-out;
 }

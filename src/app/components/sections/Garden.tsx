@@ -1,24 +1,9 @@
 "use client";
 import React from "react";
 import gardenImage from "../../../../public/images/garden.png";
-import Image from "next/image";
+import ParallaxImage from "@/app/utils/ParallaxImage";
 
 const Garden = () => {
-  // const [scrollY, setScrollY] = useState(0);
-
-  // // Scroll handle function optimized with useCallback and throttling
-  // const handleScroll = useCallback(() => {
-  //   requestAnimationFrame(() => {
-  //     setScrollY(window.scrollY);
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [handleScroll]);
   return (
     <section
       id="garden"
@@ -35,13 +20,13 @@ const Garden = () => {
         </div>
 
         {/* Divider */}
-        <div className="flex gap-2 mt-[20%]">
-          <div className="w-[500px] h-1 bg-[#D1D1D1] rounded-tr-lg rounded-br-lg opacity-90"></div>
+        <div className="flex gap-2 mt-[20%] xl:mt-[30%]">
+          <div className="w-[500px] h-1 bg-[#D1D1D1] rounded-tr-lg rounded-br-lg opacity-90 xl:w-[340px]"></div>
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-widest text-[#DAD5D6] w-[400px]">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-widest text-[#DAD5D6] w-[400px] xl:w-[300px]">
               обустройство
             </h1>
-            <div className="mt-10 text-[16px] leading-relaxed text-[#474747] md:text-lg lg:text-xl w-[400px] h-[504px]">
+            <div className="mt-10 text-[16px] leading-relaxed text-[#474747] md:text-lg lg:text-xl w-[400px] xl:w-[500px] h-[504px] ">
               <p>
                 Гордость{" "}
                 <span className="font-medium text-gray-900">Jumeira House</span>{" "}
@@ -64,16 +49,18 @@ const Garden = () => {
 
       {/* Image Section */}
       <div className="flex-1 max-w-[42.5%] mt-8 sm:mt-10 ">
-        <Image
+        <ParallaxImage
           src={gardenImage}
           alt="Jumeira project Image"
-          width={816}
-          height={900}
+          width="100%"
+          height="900px"
+          className="rounded-lg"
           objectFit="cover"
           quality={100}
           objectPosition="center"
           layout="responsive"
           loading="lazy"
+          parallaxSpeed={0.1}
         />
       </div>
     </section>

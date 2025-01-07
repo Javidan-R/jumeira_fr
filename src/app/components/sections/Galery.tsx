@@ -1,33 +1,47 @@
-"use client"; // Bu xətti əlavə edin
-import React from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css"; // Swiper CSS-in doğru yolu
-
+"use client";
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { StaticImageData } from "next/image";
 
-// Şəkil yollarını tənzimləyin
+// Import ParallaxImage component with proper type annotations
+import ParallaxImage from "@/app/utils/ParallaxImage";
+
+// Type for images
 import galery1 from "../../../../public/images/gallery.png";
 import galery2 from "../../../../public/images/gallery.png";
 import galery3 from "../../../../public/images/gallery.png";
 
-// Custom Arrow Components
-// const CustomPrevArrow = () => (
-//   <button className="swiper-button-prev bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute left-0 top-[50%] transform -translate-y-[50%] z-10">
-//     &#8592;
-//   </button>
-// );
+// Assuming these are SVG components with props
+import { ActiveDot, ArrowLeft, ArrowRight, DeactiveDot } from "@public/icons";
 
-// const CustomNextArrow = () => (
-//   <button className="swiper-button-next bg-[#C0A06C] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#b0905a] absolute right-0 top-[50%] transform -translate-y-[50%] z-10">
-//     &#8594;
-//   </button>
-// );
+const Gallery: React.FC = () => {
+  const swiperRef = useRef<SwiperClass | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-const Gallery = () => {
+  const handlePrevClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const handleBulletClick = (index: number) => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index);
+    }
+  };
+
   return (
-    <section className="my-20" id="galery">
+    <section className="my-10" id="galery">
       {/* Title Section */}
       <div className="flex items-center justify-center px-4 mb-10">
         <h2 className="text-[#C0A06C] font-[Playfair Display] font-medium text-[20px] leading-[30px] text-center md:text-[28px] md:leading-[40px] max-w-[90%] md:max-w-[1030px]">
@@ -43,54 +57,71 @@ const Gallery = () => {
           slidesPerView={1}
           loop={true}
           autoplay={{ delay: 3000 }}
-          navigation={{
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
-          }}
-          pagination={{
-            clickable: true,
-            el: ".swiper-pagination",
+          modules={[Navigation, Pagination]}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            // Listen for slide change events to update activeIndex
+            swiper.on("slideChange", () => {
+              setActiveIndex(swiper.realIndex);
+            });
           }}
         >
-          <SwiperSlide>
-            <div className="w-full h-[500px] sm:h-[700px] md:h-[900px] relative">
-              <Image
-                src={galery1}
-                alt="Gallery Image 1"
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                className="rounded-md"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full h-[500px] sm:h-[700px] md:h-[900px] relative">
-              <Image
-                src={galery2}
-                alt="Gallery Image 2"
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                className="rounded-md"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full h-[500px] sm:h-[700px] md:h-[900px] relative">
-              <Image
-                src={galery3}
-                alt="Gallery Image 3"
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                className="rounded-md"
-              />
-            </div>
-          </SwiperSlide>
+          {([galery1, galery2, galery3] as StaticImageData[]).map(
+            (image: StaticImageData, index: number) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-[500px] sm:h-[700px] md:h-[900px] relative">
+                  <ParallaxImage
+                    src={image}
+                    alt={`Gallery Image ${index + 1}`}
+                    height={900}
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                    parallaxSpeed={0.05}
+                  />
+                </div>
+              </SwiperSlide>
+            )
+          )}
         </Swiper>
-        <div className="absolute bottom-0 left-0 right-0 z-20 flex justify-center swiper-pagination"></div>
+        <div className="flex items-center justify-center ">
+          <div className="relative flex justify-between top-2">
+            <button
+              className="absolute right-[100px] p-0 bg-transparent border-none "
+              onClick={handlePrevClick}
+            >
+              <ArrowLeft />
+            </button>
+            <div className="flex items-center justify-center gap-4">
+              {[0, 1, 2].map((idx) => (
+                <button key={idx} onClick={() => handleBulletClick(idx)}>
+                  {idx === activeIndex ? <ActiveDot /> : <DeactiveDot />}
+                </button>
+              ))}
+            </div>
+            <button
+              className="absolute left-[100px] p-0 bg-transparent border-none "
+              onClick={handleNextClick}
+            >
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* Custom Pagination Dot Styling */}
+      <style jsx>{`
+        .swiper-pagination-bullet {
+          width: auto;
+          height: auto;
+          background: none;
+          opacity: 1;
+        }
+        .swiper-pagination-bullet svg {
+          width: 12px;
+          height: 12px;
+        }
+      `}</style>
     </section>
   );
 };

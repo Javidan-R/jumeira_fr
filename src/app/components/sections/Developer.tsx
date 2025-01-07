@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import devimg from "../../../../public/images/devimg.png";
+import ParallaxImage from "@/app/utils/ParallaxImage";
 const Developer = () => {
   return (
     <section className="" id="developer">
@@ -13,11 +14,11 @@ const Developer = () => {
         {/* Description */}
         <div className=" w-[504px] h-[256px] flex justify-end items-start   ">
           <div className="">
-            <h2 className=" text-[80px] leading-[50px] font-extralight tracking-[8px] text-left  text-[#DAD5D6]">
+            <h2 className=" text-[80px] 2xl:text-[60px] xl:text-[50px] lg:text-[40px] leading-[50px] xl:leading-[30px] lg:leading-[20px] font-extralight tracking-[8px] text-left  text-[#DAD5D6]">
               застройщик
             </h2>
 
-            <p className="mb-20 my-14 text-[#474747] text-[18px] leading-[32px] tracking-[1px] text-left font-extralight">
+            <p className="mb-20 xl:mb-14 lg:mb-10 my-14 text-[#474747] text-[18px] leading-[32px] tracking-[1px] text-left font-extralight">
               Ваш будущий дом строила девелоперская компания{" "}
               <span className="font-medium text-gray-900">ABSOLUT</span>,
               успешно работающая на рынке более 15 лет. За это время компания
@@ -36,13 +37,14 @@ const Developer = () => {
           </div>
         </div>
         {/* Placeholder for Image/Map */}
-        <div className="w-[816px] h-[752px]  rounded-;-md opacity-100 ml-[6%]">
-          <Image
+        <div className="w-[816px] h-[752px] xl:w-[716px] xl:h-[670px]  rounded-;-md opacity-100 ml-[6%]">
+          <ParallaxImage
             src={devimg}
-            alt="Gallery Image 2"
+            alt="Developer Image"
+            objectPosition="fill"
             objectFit="cover"
             quality={100}
-            className="rounded-r-md"
+            parallaxSpeed={0.1} // Adjust this value for the desired parallax effect
           />
         </div>
       </div>

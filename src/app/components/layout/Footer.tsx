@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className="text-[#4B4F54] flex justify-end">
-      <div className="w-[1476px] h-[375px] flex flex-col justify-end">
+      <div className="w-[80%] h-[375px] flex flex-col justify-end">
         <div className="flex justify-center">
           <Image src={logo} alt="Logo" loading="lazy" />
         </div>

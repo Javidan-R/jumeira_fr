@@ -13,3 +13,8 @@ export { Document } from "./Document";
 export { Whatsapp } from "./Whatsapp";
 export { Telegram } from "./Telegram";
 // export {VectorArchLine} from './VectorArchLine';
+export { ActiveDot } from "./ActiveDot";
+export { ArrowLeft } from "./ArrowLeft";
+export { ArrowRight } from "./ArrowRight";
+export { DeactiveDot } from "./DeactiveDot";
+// export {} from ".";

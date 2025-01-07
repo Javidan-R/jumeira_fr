@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
   const inactiveColor = "#C0C0C0";
 
   return (
-    <div className="w-24 bg-white shadow-lg">
-      <nav className="flex flex-col items-center justify-center flex-grow gap-4 space-y-10">
+    <div className="w-24 h-[1042px] bg-white shadow-lg">
+      <nav className="flex flex-col items-center justify-center flex-grow gap-4 space-y-7">
         <NavItem
           href="/"
           icon={
